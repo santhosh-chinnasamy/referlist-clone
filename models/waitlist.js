@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const waitlistSchema = new Schema({
     list_name: String,
     description: String,
-    domain: { type:String, unique:true},
-    company: { type:String },
+    domain: String,
+    company: String,
     website_url:String,
     created_by:String,
     users:[{
