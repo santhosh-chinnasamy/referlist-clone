@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "5b5d4823-8ce4-4cec-a11f-8a57fee44173",
+		"name": "referlist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"santhosh@mail.com\",\n\t\"name\":\"santhosh\",\n\t\"password\":\"123456\",\n\t\"status\":\"A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"santhosh@mail.com\",\n\"password\":\"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list/createlist",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFlYmFkNzg0YTZmYjU1ZjQ1YTZlMDIiLCJpYXQiOjE1ODg1MTAzNTMsImV4cCI6MTU4ODU5Njc1M30.erapDt62Qp40tiGkpP0DXOWSjO67_Pviqy6hyEFQA0U",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"list_name\":\"list 1\",\n    \"description\":\"test list\",\n    \"company\":\"new comp1any\",\n    \"website_url\":\"www.google.com\",\n    \"domain\":\"seo_product2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/list/createlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"createlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list/readlist/:id?with_users=true",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFlYmFkNzg0YTZmYjU1ZjQ1YTZlMDIiLCJpYXQiOjE1ODg1MTAzNTMsImV4cCI6MTU4ODU5Njc1M30.erapDt62Qp40tiGkpP0DXOWSjO67_Pviqy6hyEFQA0U",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/list/readlist/5eaec33cd54c546138c160d8?with_users=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"readlist",
+						"5eaec33cd54c546138c160d8"
+					],
+					"query": [
+						{
+							"key": "with_users",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list/readlist/:id?with_users=fasle",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFlYmFkNzg0YTZmYjU1ZjQ1YTZlMDIiLCJpYXQiOjE1ODg1MTAzNTMsImV4cCI6MTU4ODU5Njc1M30.erapDt62Qp40tiGkpP0DXOWSjO67_Pviqy6hyEFQA0U",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/list/readlist/5eaec598cc320f64b7238015",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"readlist",
+						"5eaec598cc320f64b7238015"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list/editlist",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFlYmFkNzg0YTZmYjU1ZjQ1YTZlMDIiLCJpYXQiOjE1ODg1MTAzNTMsImV4cCI6MTU4ODU5Njc1M30.erapDt62Qp40tiGkpP0DXOWSjO67_Pviqy6hyEFQA0U",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"list_id\":\"5eaec598cc320f64b7238015\",\n\t\"list_name\":\"list 1\",\n    \"description\":\"test list\",\n    \"company\":\"new company\",\n    \"website_url\":\"www.google.com\",\n    \"domain\":\"seo_products\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/list/editlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"editlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list/deletelist/:id",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFlYmFkNzg0YTZmYjU1ZjQ1YTZlMDIiLCJpYXQiOjE1ODg1MTAzNTMsImV4cCI6MTU4ODU5Njc1M30.erapDt62Qp40tiGkpP0DXOWSjO67_Pviqy6hyEFQA0U",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/list/deletelist/5eaec598cc320f64b7238015",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"deletelist",
+						"5eaec598cc320f64b7238015"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list//join/:domain?email=test@gmail.com",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/list//join/seo_product2?email=madhan@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"",
+						"join",
+						"seo_product2"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "madhan@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list/referlist?refcode=Id2F6hZTut&email=newuser@mail.com&domain=seo_product2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/list/referlist?refcode=Id2F6hZTut&email=newqm1ail@mail.com&domain=seo_product2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"referlist"
+					],
+					"query": [
+						{
+							"key": "refcode",
+							"value": "Id2F6hZTut"
+						},
+						{
+							"key": "email",
+							"value": "newqm1ail@mail.com"
+						},
+						{
+							"key": "domain",
+							"value": "seo_product2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list/getall",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFlYmFkNzg0YTZmYjU1ZjQ1YTZlMDIiLCJpYXQiOjE1ODg1MTAzNTMsImV4cCI6MTU4ODU5Njc1M30.erapDt62Qp40tiGkpP0DXOWSjO67_Pviqy6hyEFQA0U",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-access-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/list/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
