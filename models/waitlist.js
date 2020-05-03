@@ -5,11 +5,12 @@ const waitlistSchema = new Schema({
     list_name: String,
     description: String,
     domain: { type:String, unique:true},
-    company: { type:String, unique:true},
+    company: { type:String },
     website_url:String,
+    created_by:String,
     users:[{
         email:String,
-        position:{ type:String,default:99},
+        position:{ type:Number,default:99},
         mail_notify:{ type:Boolean,default:false}
     }]
 });

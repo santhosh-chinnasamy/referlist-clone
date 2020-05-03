@@ -15,13 +15,19 @@ const auth = async (req, res, next) => {
             }
 
             const user = await User.findById(userId);
-            if (!user) return apiResponse.ErrorResponse(res, "Authentication failed");
+            if (!user) return apiResponse.unauthorizedResponse(res, "Token verification failed");
 
             req.user = user;
             req.token = accessToken;
             next()
         } catch (error) {
-            return apiResponse.ErrorResponse(res, "Token verification failed");
+            return apiResponse.unauthorizedResponse(res, error.message);
         }
+    }else{
+        return apiResponse.unauthorizedResponse(res, "Unauthorized request");
     }
+};
+
+module.exports = {
+    Auth:auth
 }
