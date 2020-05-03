@@ -199,7 +199,7 @@ exports.referlist = async (req,res) => {
         console.log(is_notified);
     }
     
-    let html = `<h3>You are now a top priority in our waiting list</h3> Domain:${domain} URL: ${website_url}`;
+    let html = `<h3>You are now a top priority in our waiting list</h3> URL: ${website_url}/${domain}`;
        
     let response = {};
     if(!is_user_exists && !is_email_exists){
