@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user').User;
+const apiResponse = require('../_helpers/apiresponse');
+
 const auth = async (req, res, next) => {
     const accessToken = req.headers['x-access-token'];
     if (accessToken) {
@@ -9,29 +11,17 @@ const auth = async (req, res, next) => {
                 exp
             } = jwt.verify(accessToken, process.env.JWT_SECRET);
             if (exp < Date.now().valueOf() / 1000) {
-                res.json({
-                    status: 199,
-                    message: "JWT token has expired, please login to obtain a new one"
-                });
-                return
+                return apiResponse.ErrorResponse(res, "JWT token has expired, please login to obtain a new one");
             }
 
             const user = await User.findById(userId);
-            if (!user) {
-                res.json({
-                    status: 199,
-                    message: "Authentication failed"
-                });
-                return
-            }
+            if (!user) return apiResponse.ErrorResponse(res, "Authentication failed");
+
             req.user = user;
             req.token = accessToken;
             next()
         } catch (error) {
-            res.json({
-                status: 199,
-                message: 'Token verification failed'
-            });
+            return apiResponse.ErrorResponse(res, "Token verification failed");
         }
     }
 }

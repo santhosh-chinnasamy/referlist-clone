@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-const winston = require('../config/winston');
+const winston = require('./config/winston');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -10,7 +10,7 @@ const cors = require('cors');
 require('dotenv').config()
 
 const indexRouter = require('./routes/index');
-
+const waitlistRouter = require('./routes/waitlist');
 const app = express();
 
 app.use(morgan('combined', {
@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cors());
 app.use('/', indexRouter);
+app.use('/list', waitlistRouter);
 
 // error handler
 app.use(function (err, req, res, next) {
@@ -44,7 +45,8 @@ app.use(function (err, req, res, next) {
 mongoose.connect(process.env.MONGO_URL || '', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true
+        useCreateIndex: true,
+        useFindAndModify:true
     })
     .then(() => {
         console.log('MongoDB Connection Started');
