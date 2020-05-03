@@ -4,6 +4,7 @@ const random = require('../_helpers/random');
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 
+// login with email and password
 exports.login = async (req,res) => {
     let {email,password} = req.body;
     password = await md5(password);
@@ -24,6 +25,7 @@ exports.login = async (req,res) => {
     }
 };
 
+// signup route
 exports.signup = async (req,res) => {
     let {
         name,

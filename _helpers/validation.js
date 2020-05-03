@@ -1,6 +1,7 @@
 const validator = require('express-validator');
 const apiResponse = require('./apiresponse');
 
+// validate login credentials
 exports.validate_login = [
     validator.check('email').not().isEmpty().withMessage('email must not be empty'),
     validator.check('password').not().isEmpty().withMessage('password must not be empty'),
@@ -12,6 +13,7 @@ exports.validate_login = [
     }
 ];
 
+// validate signup input
 exports.validate_signup = [
     validator.check('name').not().isEmpty().withMessage('name must not be empty'),
     validator.check('password').not().isEmpty().withMessage('password must not be empty'),
@@ -24,6 +26,7 @@ exports.validate_signup = [
     }
 ];
 
+// validate waitlist input
 exports.validate_list = [
     validator.check('list_name').not().isEmpty().withMessage('list name must not be empty'),
     validator.check('description').not().isEmpty().withMessage('description must not be empty'),

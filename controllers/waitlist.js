@@ -4,6 +4,7 @@ const apiResponse = require('../_helpers/apiresponse');
 const random = require('../_helpers/random');
 const mailer = require('../_helpers/mailer');
 
+// create new waitlist
 exports.createlist = async (req,res) => {
     let {
         list_name,
@@ -27,6 +28,7 @@ exports.createlist = async (req,res) => {
     });
 };
 
+// read list
 exports.readlist = async (req,res)=>{
     let { list_id } = req.params;
     let {with_users} = req.query;
@@ -41,6 +43,7 @@ exports.readlist = async (req,res)=>{
     else return apiResponse.successResponse(res,"list not found");
 };
 
+// edit existing waitlist
 exports.editlist = async (req,res)=>{
     let { 
         list_id,
@@ -59,6 +62,7 @@ exports.editlist = async (req,res)=>{
      return apiResponse.successResponse(res,"list updated",updatelist);
 };
 
+// delete a wait list
 exports.deletelist = async (req,res) => {
     let { id } = req.params;
 
@@ -70,6 +74,7 @@ exports.deletelist = async (req,res) => {
     return apiResponse.successResponse(res,"list deleted");
 }
 
+// get all waitlist by created user
 exports.getalllist = async (req,res) => {
     
     let lists = await List.find({created_by:req.user._id},{users:false},(err,result) => {
@@ -79,6 +84,7 @@ exports.getalllist = async (req,res) => {
     return apiResponse.successResponseWithData(res,"all lists",lists);
 };
 
+// join to a waiting list
 exports.joinlist = async (req,res) =>{
     let { domain} = req.params;
     let { email } = req.query;
@@ -154,6 +160,7 @@ exports.joinlist = async (req,res) =>{
     return apiResponse.successResponseWithData(res,"added to waitlist",response);
 };
 
+// join by referral code
 exports.referlist = async (req,res) => {
     let {refcode,domain,email} = req.query;
 
